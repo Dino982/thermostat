@@ -11,12 +11,12 @@ $(document).ready(function(){
 
   $('#temperature-up').on('click', function() {
     thermostat.increaseTemperature();
-    $('#temperature').text(thermostat.currentTemperature);
+    updateTemperature();
   });
 
   $('#temperature-down').on('click', function(){
     thermostat.decreaseTemperature();
-    $('#temperature').text(thermostat.currentTemperature);
+    updateTemperature();
   });
 
   $('#temperature-reset').on('click', function(){
@@ -30,7 +30,12 @@ $(document).ready(function(){
   $('#powersaving-on').on('click', function(){
     thermostat.switchPowerSavingModeOn();
     $("#power-saving-status").text("on");
-    $('#temperature').text(thermostat.currentTemperature);
+    updateTemperature();
   });
+
+  function updateTemperature() {
+    $('#temperature').text(thermostat.currentTemperature);
+    $('#temperature').attr('class', thermostat.energyUsage());
+  }
 
 });
