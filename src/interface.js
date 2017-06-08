@@ -1,7 +1,11 @@
 $(document).ready(function(){
   var thermostat = new Thermostat();
 
-  $('#temperature').text(thermostat.currentTemperature);
+  $.get('http://api.openweathermap.org/data/2.5/weather?q=London&appid=ab8b8df684ed13293bd86cb6dedc205e&units=metric', function(data) {
+  $('#current-temperature').text(data.main.temp);
+})
+
+  $('#temperature').text(updateTemperature());
 
   if (thermostat.isPowerSavingModeOn()) {
     $('#power-saving-status').text("on")
@@ -34,7 +38,7 @@ $(document).ready(function(){
   });
 
   function updateTemperature() {
-    $('#temperature').text(thermostat.currentTemperature);
+    $('#temperature').html(thermostat.currentTemperature + '&deg;C');
     $('#temperature').attr('class', thermostat.energyUsage());
   }
 
