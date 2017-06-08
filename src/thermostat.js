@@ -32,6 +32,9 @@ Thermostat.prototype.switchPowerSavingModeOff = function() {
 };
 
 Thermostat.prototype.switchPowerSavingModeOn = function() {
+  if (this.currentTemperature > this.MAX_TEMP_PSM_ON) {
+    this.currentTemperature = this.MAX_TEMP_PSM_ON;
+  }
   this.powerSavingMode = true;
 };
 
