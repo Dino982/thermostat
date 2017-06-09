@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
 .low-usage {
   color: green;
 }
@@ -8,4 +10,22 @@
 
 .high-usage {
   color: red;
+}
+
+.first-heading {
+  font-family: 'Roboto'
+}
+
+button {
+  font-family: 'Arial Black'
+}
+
+.control-box {
+  text-align: center;
+  background-color: rgba(170, 170, 170, 0.4);
+  margin-top: 20%;
+}
+
+body {
+  background: url("http://sites.psu.edu/siowfa15/wp-content/uploads/sites/29639/2015/10/weather.jpg");
 }
